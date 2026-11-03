@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: containershield
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/containershield
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+trivy:
+  server:
+    url: ${TRIVY_SERVER_URL:http://containershield-trivy:4954}
+
+ollama:
+  url: ${OLLAMA_URL:http://localhost:11434/api/generate}
+  model: ${OLLAMA_MODEL:qwen2.5-coder:7b}
+  num-ctx: ${OLLAMA_NUM_CTX:4096}
